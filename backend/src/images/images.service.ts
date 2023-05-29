@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ApiImages } from 'src/utils/api.images';
 import { IImage } from 'src/utils/interfaces';
-import { CreateImageDto } from './dto/create-image.dto';
-import { UpdateImageDto } from './dto/update-image.dto';
 
 const api = new ApiImages();
-
 @Injectable()
 export class ImagesService {
   create(data: IImage) {

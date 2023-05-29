@@ -43,7 +43,7 @@ export class ApiImages extends ApiBase {
       );
 
       return {
-        result: this.transformImages(data?.flat()),
+        result: this.transformImages(data.flat(2)),
       };
     } catch (ex) {
       console.error('Images list error:', ex); // I could prefer to use some logger lib for it, but to save some time I could skip this part

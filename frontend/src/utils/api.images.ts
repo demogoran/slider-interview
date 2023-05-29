@@ -9,7 +9,7 @@ export class ApiImages extends ApiBase {
 
   public async getImagesList() {
     try {
-      const data = await this.get("/");
+      const data = await this.get("/images");
       return data.result;
     } catch (ex) {
       console.error("Images list error:", ex); // I could prefer to use some logger lib for it, but to save some time I could skip this part
