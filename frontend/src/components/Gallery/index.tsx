@@ -1,11 +1,11 @@
 import React from "react";
 import { IImage } from "../../utils/interfaces";
 import "./Gallery.scss";
-interface GalleryProps {
+interface IGalleryProps {
   images: IImage[];
 }
 
-const Gallery: React.FC<GalleryProps> = ({ images }) => {
+const Gallery: React.FC<IGalleryProps> = ({ images }) => {
   return (
     <div className="gallery">
       {images.map((image, index) => (

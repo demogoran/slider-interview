@@ -9,7 +9,8 @@ import "./Slider.scss";
 interface ISliderProps {
   images: IImage[];
 }
-const Slider = ({ images }: ISliderProps) => {
+
+const Slider: React.FC<ISliderProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
