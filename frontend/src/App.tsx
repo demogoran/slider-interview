@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ApiImages } from "./utils/api.images";
 
-import logo from "./logo.svg";
-import "./App.scss";
 import Slider from "./components/Slider";
+
+import "./App.scss";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -15,6 +15,7 @@ function App() {
       setImages(data);
     })();
   }, []);
+
   return (
     <div className="App">
       <header className="App-header"></header>

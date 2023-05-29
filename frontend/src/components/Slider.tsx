@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { GrNext, GrPrevious } from "react-icons/gr";
+import { RxDot, RxDotFilled } from "react-icons/rx";
+
 import { IImage } from "../utils/interfaces";
 
 import "./Slider.scss";
@@ -20,14 +23,25 @@ const Slider = ({ images }: ISliderProps) => {
   };
 
   return (
-    <div className="slider">
-      <img className="slide" src={images?.[currentIndex]?.url} alt="Slider" />
-      <button className="prev-btn" onClick={prevSlide}>
-        Prev
-      </button>
-      <button className="next-btn" onClick={nextSlide}>
-        Next
-      </button>
+    <div className="slider-wrapper">
+      <div className="slider">
+        <img className="slide" src={images?.[currentIndex]?.url} alt="Slider" />
+
+        <GrNext className="next-btn" onClick={nextSlide}></GrNext>
+        <GrPrevious className="prev-btn" onClick={prevSlide}></GrPrevious>
+      </div>
+      <div className="slider-dots">
+        {images?.map((item, index) =>
+          index === currentIndex ? (
+            <RxDotFilled
+              className="slider-dots-selected"
+              onClick={() => setCurrentIndex(index)}
+            />
+          ) : (
+            <RxDot onClick={() => setCurrentIndex(index)} />
+          )
+        )}
+      </div>
     </div>
   );
 };
