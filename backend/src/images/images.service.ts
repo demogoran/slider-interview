@@ -1,23 +1,27 @@
 import { Injectable } from '@nestjs/common';
+import { ApiImages } from 'src/utils/api.images';
+import { IImage } from 'src/utils/interfaces';
 import { CreateImageDto } from './dto/create-image.dto';
 import { UpdateImageDto } from './dto/update-image.dto';
 
+const api = new ApiImages();
+
 @Injectable()
 export class ImagesService {
-  create(createImageDto: CreateImageDto) {
-    return 'This action adds a new image';
+  create(data: IImage) {
+    return api.createImage(data);
   }
 
   findAll() {
-    return `This action returns all images`;
+    return api.getImagesList();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} image`;
+    return api.getImage(id);
   }
 
-  update(id: number, updateImageDto: UpdateImageDto) {
-    return `This action updates a #${id} image`;
+  update(id: number, data: IImage) {
+    return api.updateImage(id, data);
   }
 
   remove(id: number) {
