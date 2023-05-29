@@ -1,6 +1,7 @@
 # Interview
-Thank you for dedicating your time to complete our developer test interview!
 
-At backend and frontend folders you can find the task
+It's fast and dirty POC for interview application.
 
-The recommended order to do it's backend and after that frontend
+It misses lot of features I could add becouse of lack of time(tests, scss formatting, better error handling/display etc.).
+
+If you need anything specific, please ping me.
