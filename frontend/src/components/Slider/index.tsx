@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { RxDot, RxDotFilled } from "react-icons/rx";
 
-import { IImage } from "../utils/interfaces";
+import { IImage } from "../../utils/interfaces";
 
 import "./Slider.scss";
 
@@ -25,7 +25,16 @@ const Slider = ({ images }: ISliderProps) => {
   return (
     <div className="slider-wrapper">
       <div className="slider">
-        <img className="slide" src={images?.[currentIndex]?.url} alt="Slider" />
+        <img
+          className="slide"
+          src={images?.[currentIndex]?.url}
+          alt="Slider"
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // prevents looping
+            currentTarget.src =
+              "https://via.placeholder.com/600x600?text=Missed%20image";
+          }}
+        />
 
         <GrNext className="next-btn" onClick={nextSlide}></GrNext>
         <GrPrevious className="prev-btn" onClick={prevSlide}></GrPrevious>

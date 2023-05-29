@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { ApiImages } from "./utils/api.images";
 
 import Slider from "./components/Slider";
+import Gallery from "./components/Gallery";
 
 import "./App.scss";
 
 function App() {
   const [images, setImages] = useState([]);
+  const [isGallery, setIsGallery] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -18,10 +20,16 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        <button onClick={() => setIsGallery(!isGallery)}>Toggle view</button>
+      </header>
 
       <div className="container">
-        <Slider images={images}></Slider>
+        {isGallery ? (
+          <Gallery images={images}></Gallery>
+        ) : (
+          <Slider images={images}></Slider>
+        )}
       </div>
     </div>
   );
